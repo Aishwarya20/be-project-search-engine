@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <title>Files for download</title>
+    <head>
+      <link rel="stylesheet" href="http://127.0.0.1:5000/js/css/StyleSheet.css" type="text/css"/>
+
+
+	</head>
+<body style="background-image:url(http://127.0.0.1:5000/js/css/uploads/book_background_like-4.jpg)">
+
+		 <div id="header">
+		<div id="title"><i>Reader's Paradise</i></div>
+		<div id="slogan">Dive into the world of reading!</div>
+		<div id="nav">
+		<ul>
+		<a href="http://127.0.0.1:5000/js/feedback.html"><li><span class="fa fa-users"></span>&nbsp;FEEDACK</li></a>
+    <a href="#"><li>&nbsp;DATA VISUALISATION
+      <ul>
+  		<a href="http://127.0.0.1:5000/js/datavisualisation.html"><li>&nbsp;DOCUMENT SIMILARITY</li></a>
+  		<a href="http://127.0.0.1:5000/js/visualization_word.html"><li>&nbsp;WORD SIMILARITY</li></a>
+  		</ul>
+
+</li></a>
+
+    <a href="http://127.0.0.1:5000/js/search.html"><li><span class="fa fa-inr"></span>&nbsp;SEARCH</li></a>
+		<a href="http://127.0.0.1:5000/js/home.html"><li><span class="fa fa-home"></span>HOME</li></a>
+		</ul>
+		</div>
+
+<div class="col_1" style="height:auto">
+<h3>Showing results for:{{query}}</h3>
+<h4>Click to download the books below!</h4>
+{% for key,value in dloads.iteritems() %}
+      {% for file in dloads[key]%}
+         {% set inner_loop=loop %}
+
+         {% if inner_loop.index0 == 0 %}
+            <br>
+            Book Name:<a href="{{ file }}" download>{{ keys[key][inner_loop.index0] }}</a>
+            <h5>Related Books:</h5>
+            {% if count[key] == 1 %}
+            <li>No related books found!</li>
+            {% endif %}
+
+         {% else %}
+
+             <li>Book Name:<a href="{{ file }}" download>{{ keys[key][inner_loop.index0] }}</a></li>
+          {% endif %}
+
+       {% endfor %}
+{% endfor %}
+</div>
+</html>

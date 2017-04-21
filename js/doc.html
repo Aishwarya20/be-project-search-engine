@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <title>Files for download</title>
+    <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+
+	</head>
+<body style="background-image:url(http://127.0.0.1:5000/js/css/uploads/book_background_like-4.jpg)">
+
+		 <div id="header">
+		<div id="title"><i>Reader's Paradise</i></div>
+		<div id="slogan">Dive into the world of reading!</div>
+		<div id="nav">
+		<ul>
+		<a href="http://127.0.0.1:5000/js/feedback.html"><li><span class="fa fa-users"></span>&nbsp;FEEDACK</li></a>
+    <a href="#"><li>&nbsp;DATA VISUALISATION
+      <ul>
+  		<a href="http://127.0.0.1:5000/js/datavisualisation.html"><li>&nbsp;DOCUMENT SIMILARITY</li></a>
+  		<a href="http://127.0.0.1:5000/js/visualization_word.html"><li>&nbsp;WORD SIMILARITY</li></a>
+  		</ul>
+
+</li></a>
+
+    <a href="http://127.0.0.1:5000/js/search.html"><li><span class="fa fa-inr"></span>&nbsp;SEARCH</li></a>
+		<a href="http://127.0.0.1:5000/js/home.html"><li><span class="fa fa-home"></span>HOME</li></a>
+		</ul>
+		</div>
+
+<div class="col_1">
+{% for file in dloads %}
+    <a href="{{ dloads[loop.index0] }}" download>{{ file }}</a>
+{% endfor %}
+</div>
+</html>

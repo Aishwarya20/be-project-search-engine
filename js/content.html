@@ -1,0 +1,7 @@
+<!doctype html>
+<title>Files for download</title>
+{% for key,value in dloads.iteritems() %}
+    {% for file,filename in dload[key],keys[key] %}
+       <a href="{{ file }}" download>{{ filename }}</a>
+{% endfor %}
+</html>
