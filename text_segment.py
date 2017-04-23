@@ -71,10 +71,14 @@ def display_segment_author(sentence):
                 txt=' '.join(segment_author(word))
                 text=text+txt+' '
     #print len(text.split(' ')),len(sentence)
-    if len(temp_sentence)-len(text.split(' '))<=1:
+    actual_text=""
+    for ch in text.split(' '):
+        if len(ch)>1:
+            actual_text=actual_text+ch+" "
+    if actual_text=="":
         return sentence
     else:
-        return text
+        return actual_text
 
 
 
@@ -88,10 +92,19 @@ def display_segment_content(sentence):
                 txt=' '.join(segment_content(word))
                 text=text+txt+' '
     #print(len(text.split(' ')),len(sentence))
-    if len(temp_sentence)-len(text.split(' '))<=1:
+    #if the word doesn't exist in the vocabulary it is returned as each constituent letter
+    #in case the word doesnt exist, we return the word as it is
+    #else we return the words that seem coherent in the segmented list
+    actual_text=""
+    for ch in text.split(' '):
+        if len(ch)>1:
+            actual_text=actual_text+ch+" "
+    if actual_text=="":
         return sentence
     else:
-        return text
+        return actual_text
+
+
 
 
 
@@ -103,5 +116,5 @@ count_content=Counter(re.findall('[a-z]+',content.lower()))
 
 author_dict=pdist(count_author)
 content_dict=pdist(count_content)
-#print display_segment_author('rabindranath tagore')
+#print display_segment_author('hentryjames')
 #print display_segment_content('spanishamerican')
