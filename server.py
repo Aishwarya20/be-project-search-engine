@@ -15,15 +15,10 @@ import re
 from nltk.corpus import stopwords
 from collections import Counter
 from elasticsearch import Elasticsearch
-import cluster_text as ct
 import sys
 import extract_books as eb
-import ingest
-ct.main(sys.argv[1])
 stopword=set(stopwords.words("english"))
 es=Elasticsearch()
-print es.indices.delete(index='top100', ignore=[400, 404])
-ingest.main(sys.argv[1])
 app = Flask(__name__,static_folder='js',template_folder='template')
 
 @app.route('/js/<path:path>/')
