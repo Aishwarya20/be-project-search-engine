@@ -142,7 +142,7 @@ def main(args):
 
     #k-means clustering:document-document clustering
     num_clusters = 2
-    getcontext().prec=3
+    getcontext().prec=2
     avg_distance=0.0
     flag=True
     prev_iter=0.0
