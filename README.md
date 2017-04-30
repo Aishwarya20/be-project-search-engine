@@ -11,6 +11,7 @@ in your directory. (Line number:251,255,258,268,274)
 Pre-requisites to the project:
 1. Ensure the files-extract_books,cluster_text,spell_check,language_model,text_segment are in the same folder as server.py
 2.The folders Dataset-1,js,static and template must be loacted where server.py is
+3. Remember to copy your dataset into js folder, else the documents won't download.
 
 Running the project
 1. We first run cluster_text.py to form the clusters for the given dataset. This may require several re-runs but once the 
